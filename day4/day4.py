@@ -20,7 +20,7 @@ xmasCount = 0
 for r in range(1,len(arr)-1):
     for c in range(1,len(arr[0])-1):
         if arr[r][c] != "A": continue
-        corners = [arr[r-1][c-1], arr[r-1][c+1], arr[r+1][c-1], arr[r+1][c+1]]
+        corners = [arr[r-1][c-1], arr[r-1][c+1], arr[r+1][c+1], arr[r+1][c-1]]
         if "".join(corners) in ["MMSS", "MSSM", "SSMM", "SMMS"]:
             xmasCount += 1
 
