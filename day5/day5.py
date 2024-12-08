@@ -41,8 +41,10 @@ def check(mappingDict, line) -> bool:
 def cmp(x,y):
     if y in mapping[x]:
         return -1
-    else:
+    elif x in mapping[y]:
         return 1
+    else:
+        return 0
 
 mapping = dict()
 sum = 0
@@ -58,10 +60,9 @@ for line in input:
                 mapping[arr[1]].append(arr[0])
         else:
             arr = list(map(int,line.strip('\n').split(',')))
-            if check(mapping, arr) == True:
-                sum += arr[int((len(arr))//2)]
-            else:
-                arr.sort(key=functools.cmp_to_key(cmp))
-                sum += arr[int((len(arr))//2)]
+            if check(mapping, arr) == True:continue
+            
+            arr.sort(key=functools.cmp_to_key(cmp))
+            sum += arr[int((len(arr))//2)]
 print(sum)
 
